@@ -15,10 +15,17 @@
     background: linear-gradient(#000000, #4b0082, #0000ff);
     padding-top: 50px;
     font-family: Arial, sans-serif;
+    opacity: 0;
+    animation: fadeInBody 1s forwards;
   }
 
-  /* Стиль для заголовка */
-  .installation-title {
+  @keyframes fadeInBody {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .title {
     font-size: 24px;
     font-weight: bold;
     color: #ffffff;
@@ -29,21 +36,32 @@
     text-align: center;
     margin-bottom: 20px;
     max-width: 350px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.2s;
   }
 
   .logo {
     height: 200px;
     width: 200px;
-    box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
     border-radius: 48%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.4s;
+  }
+
+  .logo:hover {
+    transform: scale(0.8);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 
   .text {
     display: flex;
     margin-top: 50px;
     padding: 10px 20px;
-    background: linear-gradient(to right, #4b0082, #0000ff);
+    background: linear-gradient(to right, #520707, #ed1b1b);
     backdrop-filter: blur(10px);
     height: auto;
     max-width: 300px;
@@ -52,33 +70,39 @@
     font-size: 14px;
     color: #000;
     cursor: pointer;
-    box-shadow: 0px 0px 20px black;
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.6s;
   }
-  .text:hover{
+
+  .text:hover {
     transform: scale(1.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 </style>
 </head>
 
 <body>
 
-  <!-- Заголовок -->
-  <div class="installation-title">
+  <div class="title">
     Началась установка МАХ
   </div>
 
-  <!-- Логотип -->
   <div>
     <img class="logo" src="Max_logo_2025.png" alt="MAX" />
   </div>
 
-  <!-- Кнопка отмены -->
   <div class="text" onclick="playFart()">
     Отменить скачивание MAX
   </div>
 
-  <!-- Аудио эффект -->
   <audio id="fartSound" src="farts-8.mp3"></audio>
 
   <script>
